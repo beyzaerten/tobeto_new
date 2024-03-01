@@ -16,12 +16,12 @@ class User extends StatefulWidget {
 
 class _UserState extends State<User> {
   final _formKey = GlobalKey<FormState>();
-  DateTime? _selectedDate;
+  DateTime? _selectedDate = null;
 
   void _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
+      initialDate: DateTime.parse(birthday),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
@@ -32,6 +32,7 @@ class _UserState extends State<User> {
       });
       controllers['birthday']!.text =
           _selectedDate!.toLocal().toString().split(' ')[0];
+      // birthday = controllers['birthday']!.text;
     } else {
       setState(() {
         _selectedDate = null;
@@ -87,6 +88,7 @@ class _UserState extends State<User> {
             aboutmyself: values['aboutmyself']!,
           ));
       print("isim ${controllers['name']}");
+
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => ProfileScreen()));
     }
@@ -135,6 +137,9 @@ class _UserState extends State<User> {
         district = state.district;
         street = state.street;
         aboutmyself = state.aboutmyself;
+        print("doğum günüm ${state.birthday}");
+        // _selectedDate = DateTime.parse(birthday);
+        // controllers['birthday']!.text = birthday;
         return Form(
           key: _formKey,
           child: ListView(
@@ -222,7 +227,7 @@ class _UserState extends State<User> {
               child: AbsorbPointer(
                 child: TextFormField(
                   // controller: TextEditingController(text: values[key]),
-                  // initialValue: _selectedDate!.toString(),
+                  // initialValue: birthday.isEmpty ? "" : birthday,
                   controller: controllers['birthday'],
                   onSaved: (newValue) => values[key] = newValue!,
                   validator: (value) {

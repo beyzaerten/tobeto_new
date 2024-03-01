@@ -751,7 +751,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     // 'graduation' içindeki tarihi al
 
                                     return SizedBox(
-                                      width: phoneWidth / 1.5,
+                                      width: phoneWidth / 1.2,
                                       child: Card(
                                           color: isDarkMode
                                               ? Color.fromARGB(255, 72, 72, 72)
