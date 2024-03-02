@@ -461,7 +461,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     child: Card(
                                       color: isDarkMode
                                           ? Color.fromARGB(255, 72, 72, 72)
-                                          : Colors.white,
+                                          : Color.fromARGB(255, 240, 229, 255),
                                       child: Center(
                                         child: Text(
                                           state.selectedAbilitiesList[index],
@@ -526,7 +526,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     child: Card(
                                         color: isDarkMode
                                             ? Color.fromARGB(255, 72, 72, 72)
-                                            : Colors.white,
+                                            : Color.fromARGB(
+                                                255, 240, 229, 255),
                                         child: ListTile(
                                           title: Text(
                                             "${state.languages[index]['language']}",
@@ -602,7 +603,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       child: Card(
                                         color: isDarkMode
                                             ? Color.fromARGB(255, 72, 72, 72)
-                                            : Colors.white,
+                                            : Color.fromARGB(
+                                                255, 240, 229, 255),
                                         child: Center(
                                           child: ListTile(
                                             title: buildSocialMediaIcon(
@@ -751,11 +753,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     // 'graduation' içindeki tarihi al
 
                                     return SizedBox(
-                                      width: phoneWidth / 1.2,
+                                      width: phoneWidth / 1.25,
                                       child: Card(
                                           color: isDarkMode
                                               ? Color.fromARGB(255, 72, 72, 72)
-                                              : Colors.white,
+                                              : Color.fromARGB(
+                                                  255, 240, 229, 255),
                                           child: ListTile(
                                             leading: Text(
                                                 "${state.selectedEducationInfo[index]['yearOfStart']} - ${state.selectedEducationInfo[index]['graduation']}",

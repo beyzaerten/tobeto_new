@@ -8,7 +8,7 @@ class EducationRepository {
   Future<EducationtModel> getDepartmentInfoFromFirebase() async {
     final educationsFromDb = await firebaseFirestore
         .collection('educations')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .doc("X3wPr5nr55JaF8BYcPFY")
         .get();
 
     final departmentEducationsInfo =
@@ -21,7 +21,7 @@ class AnnouncementRepository {
   Future<AnnouncementModel> getAnnouncementInfoFromFirebase() async {
     final announcementFromDb = await firebaseFirestore
         .collection('announcement')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .doc("PYu2RlKFIYeMtHIwPP43")
         .get();
 
     final announcementNewsInfo =

@@ -6,7 +6,7 @@ class CatalogRepository {
   Future<CatalogModel> getDepartmentInfoFromFirebase() async {
     final catalogsFromDb = await firebaseFirestore
         .collection('catalog')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .doc("0UOMfUT6B1nP0rfyaCYH")
         .get();
 
     final catalogCardInfo = CatalogModel.fromEducationFireStore(catalogsFromDb);

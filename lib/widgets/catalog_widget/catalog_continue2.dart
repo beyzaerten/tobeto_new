@@ -160,8 +160,7 @@ class _CatalogContinue2State extends State<CatalogContinue2> {
   }
 
   _launchURL() async {
-    const url =
-        'https://lms.tobeto.com/tobeto/eep/scorm_player.aspx?pageID=1149&kk=10224&ek=670&ebk=1149';
+    const url = 'https://www.twitch.tv/bertenmusic';
     if (await canLaunch(url)) {
       await launch(url);
     } else {

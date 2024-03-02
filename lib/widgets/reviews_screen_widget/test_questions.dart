@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tobeto_new/models/test.dart';
 
 class TestQuestions extends StatefulWidget {
@@ -73,7 +74,8 @@ class _TestQuestionsState extends State<TestQuestions> {
                         left: phoneWidth / 11, right: phoneWidth / 13),
                     child: Text(
                       test.question,
-                      style: TextStyle(fontSize: 16),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
                   ...test.answers.asMap().entries.map((answerEntry) {
@@ -160,22 +162,35 @@ class _TestQuestionsState extends State<TestQuestions> {
                               width: 200,
                               height: 170,
                               child: Stack(children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Doğru Sayısı: $correctCount",
-                                      style: TextStyle(color: Colors.green),
-                                    ),
-                                    SizedBox(
-                                      height: phoneHeight / 50,
-                                    ),
-                                    Text(
-                                      "Yanlış Sayısı: $incorrectCount",
-                                      style: TextStyle(color: Colors.red),
-                                    ),
-                                  ],
+                                Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Doğru Sayısı: $correctCount",
+                                        style: TextStyle(
+                                            color: Colors.green,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 17),
+                                      ),
+                                      SizedBox(
+                                        height: phoneHeight / 40,
+                                      ),
+                                      Text(
+                                        "Yanlış Sayısı: $incorrectCount",
+                                        style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 17),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Positioned(
                                   top: 1,

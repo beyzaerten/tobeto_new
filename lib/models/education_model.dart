@@ -7,7 +7,7 @@ class EducationtModel {
 
   factory EducationtModel.fromEducationFireStore(
       DocumentSnapshot<Map<String, dynamic>> snapshot) {
-    final List<dynamic>? videosList = snapshot.data()?['cards'];
+    final List<dynamic>? videosList = snapshot.data()?['educationCard'];
     print("videosList: $videosList");
     if (videosList == null) {
       return EducationtModel(lessonList: []);

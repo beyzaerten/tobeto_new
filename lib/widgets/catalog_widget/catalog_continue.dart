@@ -132,9 +132,9 @@ class _CatalogContinueState extends State<CatalogContinue> {
                                       "İletişimde Sorun Çıkartmanın Garantili Yolları") {
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
-                                      builder: (ctx) => const LessonVideo(
+                                      builder: (ctx) => LessonVideo(
                                           videoUrl:
-                                              "lib/assets/videos/beyz.mp4"),
+                                              widget.catalogCard.videoUrl),
                                     ));
                                   }
                                   if (currentImage == "lib/assets/18456.jpg") {
@@ -263,8 +263,7 @@ class _CatalogContinueState extends State<CatalogContinue> {
   }
 
   _launchURL() async {
-    const url =
-        'https://lms.tobeto.com/tobeto/eep/content/cdn-enocta/8702/start.html?project_path=https://lms.tobeto.com/tobeto/eep/content/cdn-enocta/8702/&compability=AICC&config_path=&AICC_URL=https://lms.tobeto.com/tobeto/eep/aicc2.aspx&pageID=&secParamLMS=C6S9SWH4r3LwryhSUcz6CZlioAAYKcdsLdpj1KZDxQQ%3d&AICC_SID=1826820&isSubtitle=0';
+    const url = 'https://www.twitch.tv/bertenmusic';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
