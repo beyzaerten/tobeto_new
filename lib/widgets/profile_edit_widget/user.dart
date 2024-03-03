@@ -21,7 +21,7 @@ class _UserState extends State<User> {
   void _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
-      initialDate: DateTime.parse(birthday),
+      initialDate: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
