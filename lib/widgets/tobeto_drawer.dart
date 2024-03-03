@@ -26,10 +26,6 @@ class _TobetoDrawerState extends State<TobetoDrawer> {
 
   void _logout() {
     context.read<AuthBloc>().add(Logout());
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
-    );
   }
 
   @override

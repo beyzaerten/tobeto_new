@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_new/blocs/profile/profile_event.dart';
 import 'package:tobeto_new/blocs/profile/profile_state.dart';
+import 'package:tobeto_new/constants/collection_name.dart';
 import 'package:tobeto_new/repository/profile_repository.dart';
 
 final firebaseAuth = FirebaseAuth.instance;
@@ -13,8 +14,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<SaveProfileDataEvent>((event, emit) async {
       try {
         final profileUser = firebaseAuth.currentUser;
-        final document =
-            firebaseFirestore.collection("users").doc(profileUser!.uid);
+        final document = firebaseFirestore
+            .collection(Collections.USERS)
+            .doc(profileUser!.uid);
 
         await document.update(
           {
@@ -42,8 +44,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<SaveProfileDataWorkEvent>((event, emit) async {
       try {
         final profileUser = firebaseAuth.currentUser;
-        final document =
-            firebaseFirestore.collection("users").doc(profileUser!.uid);
+        final document = firebaseFirestore
+            .collection(Collections.USERS)
+            .doc(profileUser!.uid);
 
         await document.update(
           {
@@ -67,8 +70,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<SaveProfileDataEducationEvent>((event, emit) async {
       try {
         final profileUser = firebaseAuth.currentUser;
-        final document =
-            firebaseFirestore.collection("users").doc(profileUser!.uid);
+        final document = firebaseFirestore
+            .collection(Collections.USERS)
+            .doc(profileUser!.uid);
         await document
             .update({'selectedEducationInfo': event.selectedEducationInfo});
       } catch (e) {
@@ -80,8 +84,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<SaveProfileDataAbilitiesEvent>((event, emit) async {
       try {
         final profileUser = firebaseAuth.currentUser;
-        final document =
-            firebaseFirestore.collection("users").doc(profileUser!.uid);
+        final document = firebaseFirestore
+            .collection(Collections.USERS)
+            .doc(profileUser!.uid);
         await document
             .update({'selectedAbilitiesList': event.selectedAbilitiesList});
       } catch (e) {
@@ -93,8 +98,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<SaveProfileDataSocialMediaEvent>((event, emit) async {
       try {
         final profileUser = firebaseAuth.currentUser;
-        final document =
-            firebaseFirestore.collection("users").doc(profileUser!.uid);
+        final document = firebaseFirestore
+            .collection(Collections.USERS)
+            .doc(profileUser!.uid);
         await document.update({'socialMediaLinks': event.socialMediaLinks});
       } catch (e) {
         print("Firestore Hatası: $e");
@@ -105,8 +111,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<SaveProfileDataLanguageEvent>((event, emit) async {
       try {
         final profileUser = firebaseAuth.currentUser;
-        final document =
-            firebaseFirestore.collection("users").doc(profileUser!.uid);
+        final document = firebaseFirestore
+            .collection(Collections.USERS)
+            .doc(profileUser!.uid);
         await document.update({'languages': event.languages});
       } catch (e) {
         print("Firestore Hatası: $e");
@@ -117,8 +124,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<SaveProfileDataCertificateEvent>((event, emit) async {
       try {
         final profileUser = firebaseAuth.currentUser;
-        final document =
-            firebaseFirestore.collection("users").doc(profileUser!.uid);
+        final document = firebaseFirestore
+            .collection(Collections.USERS)
+            .doc(profileUser!.uid);
         await document.update({'certificateUrl': event.certificateUrl});
       } catch (e) {
         print("Firestore Hatası: $e");

@@ -24,6 +24,7 @@ class _StartScreenState extends State<StartScreen> {
       if (state is AuthLoggedOut) {
         return LoginScreen();
       }
+
       if (state is InformationState) {
         return HomeScreen();
       }

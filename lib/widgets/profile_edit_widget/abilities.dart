@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_new/blocs/profile/profile_bloc.dart';
 import 'package:tobeto_new/blocs/profile/profile_event.dart';
 import 'package:tobeto_new/blocs/profile/profile_state.dart';
-import 'package:tobeto_new/models/profile_models.dart';
+
 import 'package:tobeto_new/screens/profile_screen.dart';
 import 'package:tobeto_new/widgets/footer.dart';
 

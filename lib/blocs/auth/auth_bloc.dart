@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_new/blocs/auth/auth_event.dart';
 import 'package:tobeto_new/blocs/auth/auth_state.dart';
+import 'package:tobeto_new/constants/collection_name.dart';
 import 'package:tobeto_new/repository/user_repository.dart';
 import 'package:tobeto_new/screens/login_screen/login_screen.dart';
 
@@ -11,13 +12,14 @@ final firebaseAuth = FirebaseAuth.instance;
 final firebaseFirestore = FirebaseFirestore.instance;
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  String? errorMessage;
   AuthBloc() : super(Initial()) {
     firebaseAuth.authStateChanges().listen(
       (user) {
         if (user != null) {
           emit(Authenticated(user: user));
         } else {
-          emit(NotAuthenticated());
+          emit(NotAuthenticated(errorMessage: errorMessage));
         }
       },
     );
@@ -28,7 +30,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             await firebaseAuth.signInWithEmailAndPassword(
                 email: event.email, password: event.password);
       } on FirebaseAuthException catch (e) {
+        errorMessage = e.message;
         NotAuthenticated(errorMessage: e.message);
+        print("hatanın sebebi ${e.message}");
       }
     });
 
@@ -39,7 +43,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 email: event.email, password: event.password);
 
         await firebaseFirestore
-            .collection("users")
+            .collection(Collections.USERS)
             .doc(userCredential.user!.uid)
             .set({
           "email": event.email,

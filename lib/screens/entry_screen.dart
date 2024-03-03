@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tobeto_new/screens/login_screen/login_screen.dart';
 import 'package:tobeto_new/screens/login_screen/start_screen.dart';
 
 class EntryScreen extends StatefulWidget {
@@ -11,6 +13,26 @@ class EntryScreen extends StatefulWidget {
 class _EntryScreenState extends State<EntryScreen> {
   PageController _pageController = PageController();
   int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    checkFirstSeen();
+  }
+
+  checkFirstSeen() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _firstSeen = (prefs.getBool('firstSeen') ?? true);
+
+    if (_firstSeen) {
+      // Uygulamaya ilk giriş, sayfayı göster ve durumu sakla
+      prefs.setBool('firstSeen', false);
+    } else {
+      // İlk giriş değilse, başka bir sayfaya geç
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

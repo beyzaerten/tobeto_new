@@ -47,6 +47,7 @@ dependencies:
   table_calendar: ^3.1.0
   firebase_auth_platform_interface: ^7.0.9
   font_awesome_flutter: ^10.7.0
+  shared_preferences: ^2.0.10
 
 dev_dependencies:
   flutter_test:

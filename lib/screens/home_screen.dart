@@ -3,15 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_new/blocs/auth/auth_bloc.dart';
 import 'package:tobeto_new/blocs/auth/auth_event.dart';
 import 'package:tobeto_new/blocs/auth/auth_state.dart';
-import 'package:tobeto_new/screens/profile_edit_screen.dart';
 import 'package:tobeto_new/screens/profile_screen.dart';
 import 'package:tobeto_new/screens/reviews_screen.dart';
-import 'package:tobeto_new/widgets/contact_icons.dart';
 import 'package:tobeto_new/widgets/exams_container.dart';
 import 'package:tobeto_new/widgets/first_container.dart';
 import 'package:tobeto_new/widgets/footer.dart';
 import 'package:tobeto_new/widgets/home_screen_widget/education_widget.dart';
-import 'package:tobeto_new/widgets/profile_edit_widget/education.dart';
 import 'package:tobeto_new/widgets/tobeto_drawer.dart';
 
 class HomeScreen extends StatefulWidget {

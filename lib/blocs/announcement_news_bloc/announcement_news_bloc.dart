@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_new/blocs/announcement_news_bloc/announcement_news_event.dart';
 import 'package:tobeto_new/blocs/announcement_news_bloc/announcement_news_state.dart';
-import 'package:tobeto_new/repository/education_repository.dart';
+import 'package:tobeto_new/repository/announcement_repository.dart';
 
 class AnnouncementBloc
     extends Bloc<AnnouncementNewsEvent, AnnouncementNewsState> {
